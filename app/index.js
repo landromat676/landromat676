@@ -2,17 +2,17 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SloyApp from './sloyApp';
+import LandromatApp from './landromatApp';
 
 import './assets/stylesheets/main.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
-  var sloyApp = document.querySelector('#sloy-app');
+  var landromatApp = document.querySelector('#sloy-app');
 
-  if (SloyApp) {
+  if (LandromatApp) {
     ReactDOM.render(
-      <SloyApp />,
-      sloyApp
+      <LandromatApp />,
+      landromatApp
     );
   }
 });
