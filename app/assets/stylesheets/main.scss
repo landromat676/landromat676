@@ -1,0 +1,361 @@
+$baseTransitionStyle: cubic-bezier(0.660, 0.000, 0.070, 1.000);
+
+$green: #5AE800;
+$white: #fff;
+
+// Misc
+$curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: $white;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px $green;
+  transform: scale(1.2);
+  // animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke .3s $curve .8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px $green;
+  }
+}
+
+@keyframes success-translateY {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@mixin keyframes( $animationName ) {
+  @-webkit-keyframes $animationName {
+    @content;
+  }
+  @-moz-keyframes $animationName {
+    @content;
+  }
+  @-o-keyframes $animationName {
+    @content;
+  }
+  @keyframes $animationName {
+    @content;
+  }
+  @-ms-keyframes  $animationName {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin clear-transition() {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+
+html {
+  background: black;
+  font-size: 14px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: black;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+  margin: 0;
+  padding: 0;
+
+  text-rendering: optimizeLegibility;
+  -webkit-overflow-scrolling: touch;
+  -webkit-font-smoothing: antialiased;
+
+  font-family: 'EUROSTYLECYR', 'EVROS1';
+  font-style:  normal;
+  font-weight: 600;
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+}
+
+video {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  height: 100%;
+}
+
+.bottom-wrapper {
+  position: absolute;
+  z-index: 1;
+  bottom: 20px;
+  width: 100%;
+}
+
+.slogan {
+  letter-spacing: 0.06rem;
+  font-size: 1rem;
+  padding: 0 20px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  line-height: 18px;
+  max-width: 500px;
+}
+
+.status {
+  position: absolute;
+
+  &.status-success {
+    animation: success-translateY .3s;
+    animation-timing-function: $baseTransitionStyle;
+
+    &.hide {
+      transition: transform .3s $baseTransitionStyle;
+      transform: translateY(100%);
+    }
+  }
+}
+
+.slogan.slogan-h2 {
+  margin-bottom: 5px;
+}
+
+.video-bg {
+  position: fixed;
+  overflow: hidden;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.logo {
+  position: absolute;
+  z-index: 1;
+  left: 20px; top: 20px;
+}
+
+input.error {
+  background: #FF4F23;
+}
+
+footer {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  padding: 0 20px;
+  font-size: 0.66rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.6;
+  max-width: 580px;
+  font-weight: 500;
+}
+
+footer span {
+  opacity: 0.7;
+  margin-right: 10px;
+}
+
+footer a {
+  color: white;
+  opacity: 0.7;
+  margin-right: 10px;
+}
+
+footer a:hover {
+  opacity: 1;
+}
+
+.press-kit-link {
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 0 5px;
+}
+
+.text-wrapper {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+
+  text-transform: uppercase;
+  min-height: 440px;
+}
+
+button {
+  transition: background .3s $baseTransitionStyle;
+  -webkit-transition: background .3s $baseTransitionStyle;
+  background: $green;
+}
+
+button:hover {
+  background: #00C04F;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: letter-spacing .3s $baseTransitionStyle, border-color .3s $baseTransitionStyle;
+  -webkit-transition: letter-spacing .3s $baseTransitionStyle, border-color .3s $baseTransitionStyle;
+
+  color: white;
+  text-decoration: none;
+  background: black;
+  padding: 20px;
+  margin-bottom: 8px;
+  position: relative;
+  border: 2px solid black;
+
+  &:hover {
+    border-color: $green;
+    color: $green;
+    letter-spacing: 0.4rem;
+  }
+}
+
+.social-link img {
+  position: absolute;
+  top: 19px;
+  left: 15px;
+}
+
+.text-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 276px;
+  left: 0px;
+  top: 0;
+
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  opacity: 0.3;
+  transform: matrix(1, 0, 0, -1, 0, 0);
+  -webkit-transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.overlay {
+  position: absolute;
+  top: -100vh;
+  height: 100vh;
+  width: 100%;
+}
+
+.text-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 276px;
+  left: 0;
+  bottom: 0;
+
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  opacity: 0.5;
+}
+
+@media only screen and (min-width: 322px) {
+  html, body {
+    font-size: 18px;
+  }
+
+  .slogan {
+    line-height: 22px;
+    margin-bottom: 30px;
+  }
+
+  .social-link img {
+    top: 21px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  html, body {
+    overflow: hidden;
+  }
+}
+
+.landscape-placeholder {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 50%; top: 50%;
+
+  background: #181818;
+  border-radius: 10px;
+  transform: translate(-50%,-50%) rotate(90deg);
+  padding: 20px 0;
+  padding-top: 30px;
+  text-align: center;
+  width: 140px;
+
+  > img {
+    margin-bottom: 10px;
+  }
+
+  > div {
+    text-transform: uppercase;
+    letter-spacing: 0.06rem;
+    font-size: 0.66rem;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 812px) and (max-height: 414px) and (orientation: landscape) {
+  html.iphone {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    .landscape-placeholder {
+      display: block;
+    }
+  }
+}
