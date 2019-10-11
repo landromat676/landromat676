@@ -21,7 +21,7 @@ module.exports = function(env) {
       new ExtractTextPlugin(env.styleUrl),
       new HtmlWebpackPlugin({
         title: 'Citadel merchant',
-        filename: 'build/index.html',
+        filename: 'index-dev.html',
         inject: false,
         template: 'app/assets/templates/index.html',
         baseUrl: env.baseUrl,
