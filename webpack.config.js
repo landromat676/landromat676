@@ -9,17 +9,18 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 require('es6-promise').polyfill();
 
 module.exports = function(env) {
+  console.log(env.jsUrl)
 
   var config = {
     entry: './app/index.js',
 
     output: {
       path: __dirname,
-      filename: 'build/index.js'
+      filename: env.jsUrl
     },
 
     plugins: [
-      new ExtractTextPlugin('build/index.css'),
+      new ExtractTextPlugin(env.styleUrl),
       new HtmlWebpackPlugin({
         title: 'Citadel merchant',
         filename: 'build/index.html',

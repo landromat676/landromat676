@@ -79,10 +79,48 @@ h1 {
   -webkit-text-stroke: 1px black;
   margin-top: 0;
   font-family: $headerFontFamily;
+  font-size: 2.5rem;
+  line-height: 1.1;
 }
 
 .content {
   padding: $grid/2;
+}
+
+.status-sending {
+  margin-bottom: 30px;
+  color: green;
+}
+
+.status-error {
+  color: red;
+  margin-bottom: 30px;
+}
+
+.status-success {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 2;
+
+  background: black;
+  width: 100%; height: 100%;
+  text-transform: uppercase;
+  text-align: center;
+
+  > h1 {
+    position: absolute;
+    top: 50%; left: 50%;
+
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: $grid/2;
+    margin: 0;
+  }
+}
+
+h1.slogan {
+  margin-bottom: $grid*2;
+  font-size: 3.6rem;
 }
 
 .subscribe-form {
@@ -95,27 +133,87 @@ h1 {
     font-family: $baseFontFamily;
     text-transform: uppercase;
     padding: $grid/2;
-    font-size: 2rem;
+    font-size: 1rem;
     width: 100%;
     margin-bottom: $grid;
     outline: none;
   }
 
-  > button {
-    background: white;
-    border: 1px solid white;
-    color: black;
-    cursor: pointer;
-    font-size: 2rem;
-    text-transform: uppercase;
-    font-family: $baseFontFamily;
-    font-weight: normal;
-    padding: $grid/4 $grid*2;
-    outline: none;
+  > .checkbox-wrapper {
+    position: relative;
 
-    &:hover {
-      background: black;
-      color: white;
+    display: flex;
+    align-items: center;
+
+    margin: $grid*2 0;
+
+    input:checked + span {
+      background: white;
+    }
+
+    input:checked ++ label {
+      background: white;
+    }
+
+    > input {
+      opacity: 0;
+      margin: 0;
+      position: absolute;
+      z-index: 9;
+      cursor: pointer;
+      width: 100%; height: 100%;
+    }
+
+    > span {
+      position: absolute;
+      top: 0; left: 0;
+
+      display: block;
+      width: 20px; height: 20px;
+      border: 1px solid white;
+    }
+
+    > label {
+      padding-left: 30px;
+    }
+  }
+
+  > .checkbox-label {
+    font-size: 1rem;
+  }
+
+  > .button-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    width: 100%;
+
+    > button {
+      background: white;
+      border: 1px solid white;
+      color: black;
+      cursor: pointer;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-family: $baseFontFamily;
+      font-weight: normal;
+      padding: $grid/4 $grid*2;
+      outline: none;
+
+      &:hover {
+        background: black;
+        color: white;
+      }
+
+      &:disabled {
+        opacity: .5;
+
+        &:hover {
+          background: white;
+          color: black;
+        }
+      }
     }
   }
 }
@@ -131,5 +229,33 @@ h1 {
   h1 {
     font-size: 6rem;
     -webkit-text-stroke: 2px black;
+  }
+
+  .status-error,
+  .status-sending {
+    font-size: 2rem;
+  }
+
+  .subscribe-form {
+    > input {
+      font-size: 2rem;
+    }
+
+    > .checkbox-wrapper {
+      > span {
+        height: 40px; width: 40px;
+      }
+
+      > label {
+        font-size: 2rem;
+        padding-left: 50px;
+      }
+    }
+
+    > .button-wrapper {
+      > button {
+        font-size: 2rem;
+      }
+    }
   }
 }

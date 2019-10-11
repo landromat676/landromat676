@@ -7,7 +7,7 @@ import LandromatApp from './landromatApp';
 import './assets/stylesheets/main.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
-  var landromatApp = document.querySelector('#sloy-app');
+  var landromatApp = document.querySelector('#landromat-app');
 
   if (LandromatApp) {
     ReactDOM.render(

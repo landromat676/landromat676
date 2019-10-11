@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 
-const CustomForm = ({ status, message, onValidated }) => {
+const CustomForm = ({ status, message, onValidated, isSubmitButtonDisabled, checkBox }) => {
   let email, name, phone;
   const submit = () =>
     email &&
@@ -40,33 +40,20 @@ const CustomForm = ({ status, message, onValidated }) => {
     }
   }
 
-  if (message && message.includes("0 - The domain portion of the email address is invalid")) {
-    message = "Не похоже на e-mail"
-  }
-
-  if (message && message.includes("0 - The username portion of the email address is invalid")) {
-    message = "Не похоже на e-mail"
-  }
-
-  if (message && message.includes("уже подписан")) {
-    message = "такой e-mail уже подписан"
-  }
-
-  const hasNumber = function(myString) {
-    return /\d/.test(myString);
-  }
+  console.log(isSubmitButtonDisabled)
 
   return (
     <div className="subscribe-form">
+      <h1 className="slogan">Ingresar/Join Landromat.co</h1>
       {status === "sending" && (
         <div
-          className="status">
-          enviando datos/sending data...
+          className="status-sending">
+          Enviando informacion/Sending data...
         </div>
       )}
       {status === "error" && (
         <div
-          className="status"
+          className="status-error"
           dangerouslySetInnerHTML={{ __html: message }}
         />
       )}
@@ -74,7 +61,7 @@ const CustomForm = ({ status, message, onValidated }) => {
         <div
           className="status status-success"
         >
-          <div>Gracias<br/>Revisar tu email<br/>Thanks<br/>Check your e-mail</div>
+          <h1>Gracias<br/>Revisar tu email<br/>Thanks<br/>Check your e-mail</h1>
         </div>
       )}
       <input
@@ -89,7 +76,8 @@ const CustomForm = ({ status, message, onValidated }) => {
         ref={node => (email = node)}
         className={status && status === "error" ? "error" : "" }
         onChange={clearError}
-        type="email"
+        type="tel"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
         placeholder="E-mail"
         onKeyUp={submitOnEnter}
       />
@@ -101,20 +89,40 @@ const CustomForm = ({ status, message, onValidated }) => {
         placeholder="Numero de teléfono/Phone number"
         onKeyUp={submitOnEnter}
       />
-      <input
-        className={status && status === "error" ? "error" : "" }
-        onChange={clearError}
-        type="checkbox"
-        placeholder="Phone number"
-        onKeyUp={submitOnEnter} />
-      <label>Registro via email/I accept e-mail subscription</label>
-      <button onClick={submit}>Send</button>
+      <div className="checkbox-wrapper">
+        <input
+          type="checkbox"
+          onClick={checkBox}
+          name="isSubmitButtonDisabled"
+        />
+        <span></span>
+        <label className="checkbox-label">Registro via email/I accept e-mail subscription</label>
+      </div>
+      <div className="button-wrapper">
+        <button disabled={isSubmitButtonDisabled} onClick={submit}>Send</button>
+      </div>
     </div>
   );
 };
 
 export default class Landromat extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isSubmitButtonDisabled: true,
+    };
+  }
+
+  checkBox() {
+    this.setState({
+      isSubmitButtonDisabled: !this.state.isSubmitButtonDisabled,
+    })
+  }
+
   render() {
+    const isSubmitButtonDisabled = this.state.isSubmitButtonDisabled;
+    const checkBox = ::this.checkBox;
     const url = "https://tuta.us20.list-manage.com/subscribe/post?u=e2bb4f95dc2191d6b7a48a9e0&amp;id=ce3878d03f";
     return (
       <MailchimpSubscribe
@@ -127,6 +135,8 @@ export default class Landromat extends Component {
                 <CustomForm
                   status={status}
                   message={message}
+                  isSubmitButtonDisabled={isSubmitButtonDisabled}
+                  checkBox={checkBox}
                   onValidated={formData => subscribe(formData)}
                 />
               )}
