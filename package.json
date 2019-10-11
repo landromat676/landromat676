@@ -6,8 +6,7 @@
     "start": "webpack --env.baseUrl=/ --env.styleUrl=build/index.css --env.jsUrl=build/index.js --watch --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "./node_modules/.bin/webpack --config webpack.config.js",
-    "production": "webpack --env.baseUrl=/ --env.styleUrl=build/citadel-merchant.css --env.jsUrl=build/citadel-merchant.js  -p --bail --config webpack.config.js",
-    "production-onion": "webpack --env.baseUrl=http://citadel2miawoaqw.onion/merchant/ --env.styleUrl=citadel-merchant.css --env.jsUrl=citadel-merchant.js  -p --bail --config webpack.config.js"
+    "production": "webpack --env.baseUrl=/ --env.styleUrl=build/landromat.css --env.jsUrl=build/landromat.js  -p --bail --config webpack.config.js"
   },
   "repository": {
     "type": "git",

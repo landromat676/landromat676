@@ -9,8 +9,6 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 require('es6-promise').polyfill();
 
 module.exports = function(env) {
-  console.log(env.jsUrl)
-
   var config = {
     entry: './app/index.js',
 
