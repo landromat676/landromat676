@@ -40,8 +40,6 @@ const CustomForm = ({ status, message, onValidated, isSubmitButtonDisabled, chec
     }
   }
 
-  console.log(isSubmitButtonDisabled)
-
   return (
     <div className="subscribe-form">
       <h1 className="slogan">Ingresar/Join Landromat.co</h1>

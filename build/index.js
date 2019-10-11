@@ -23371,8 +23371,6 @@ var CustomForm = function CustomForm(_ref) {
     }
   };
 
-  console.log(isSubmitButtonDisabled);
-
   return _react2.default.createElement(
     "div",
     { className: "subscribe-form" },
