@@ -23449,7 +23449,9 @@ var CustomForm = function CustomForm(_ref) {
       _react2.default.createElement(
         "label",
         { className: "checkbox-label" },
-        "Registro via email/I accept e-mail subscription"
+        "Registro via email",
+        _react2.default.createElement("br", null),
+        "I accept e-mail subscription"
       )
     ),
     _react2.default.createElement(

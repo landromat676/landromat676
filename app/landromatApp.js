@@ -94,7 +94,7 @@ const CustomForm = ({ status, message, onValidated, isSubmitButtonDisabled, chec
           name="isSubmitButtonDisabled"
         />
         <span></span>
-        <label className="checkbox-label">Registro via email/I accept e-mail subscription</label>
+        <label className="checkbox-label">Registro via email<br/>I accept e-mail subscription</label>
       </div>
       <div className="button-wrapper">
         <button disabled={isSubmitButtonDisabled} onClick={submit}>Send</button>

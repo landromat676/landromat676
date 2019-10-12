@@ -95,6 +95,8 @@ h1.slogan {
   display: block;
   background: black;
   color: white;
+  -webkit-border-radius: 0;
+          border-radius: 0;
   border: 1px solid white;
   font-family: HelveticaNeue, Helvetica, Roboto, Arial, sans-serif;
   text-transform: uppercase;
@@ -193,7 +195,8 @@ h1.slogan {
     width: 65px;
     margin-right: 20px; }
   .subscribe-form > .checkbox-wrapper > label {
-    font-size: 2rem; }
+    font-size: 2rem;
+    line-height: 1; }
   .subscribe-form > .button-wrapper > button {
     font-size: 2rem;
     padding: 10px 40px; } }
