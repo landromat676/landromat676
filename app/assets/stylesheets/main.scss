@@ -80,7 +80,7 @@ h1 {
   margin-top: 0;
   font-family: $headerFontFamily;
   font-size: 2.5rem;
-  line-height: 1.1;
+  line-height: .9;
 }
 
 .content {
@@ -140,6 +140,10 @@ h1.slogan {
   }
 
   > .checkbox-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
     position: relative;
 
     display: flex;
@@ -161,16 +165,13 @@ h1.slogan {
     }
 
     > span {
-      position: absolute;
-      top: 0; left: 0;
-
-      display: block;
-      width: 20px; height: 20px;
+      width: 38px; height: 38px;
       border: 1px solid white;
+      margin-right: $grid/2;
     }
 
     > label {
-      padding-left: 30px;
+      width: 80%;
     }
   }
 
@@ -194,7 +195,7 @@ h1.slogan {
       text-transform: uppercase;
       font-family: $baseFontFamily;
       font-weight: normal;
-      padding: $grid/4 $grid*2;
+      padding: $grid/2 $grid*2;
       outline: none;
 
       &:hover {
@@ -215,7 +216,7 @@ h1.slogan {
 }
 
 
-@media only screen and (min-width: 322px) {
+@media only screen and (min-width: 402px) {
   html, body {
     font-size: 18px;
   }
@@ -239,18 +240,19 @@ h1.slogan {
 
     > .checkbox-wrapper {
       > span {
-        height: 40px; width: 40px;
+        height: 65px; width: 65px;
+        margin-right: $grid;
       }
 
       > label {
         font-size: 2rem;
-        padding-left: 50px;
       }
     }
 
     > .button-wrapper {
       > button {
         font-size: 2rem;
+        padding: $grid/2 $grid*2;
       }
     }
   }
