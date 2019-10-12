@@ -46,16 +46,36 @@ h1 {
   color: red;
   margin-bottom: 30px; }
 
+@-webkit-keyframes strobe {
+  0% {
+    background: white; }
+  50% {
+    background: black; } }
+
+@keyframes strobe {
+  0% {
+    background: white; }
+  50% {
+    background: black; } }
+
 .status-success {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 2;
-  background: black;
   width: 100%;
   height: 100%;
   text-transform: uppercase;
-  text-align: center; }
+  text-align: center;
+  -webkit-animation: strobe 200ms steps(1, end) infinite;
+          animation: strobe 200ms steps(1, end) infinite;
+  -webkit-transition: -webkit-box-flex .3s, -webkit-flex .3s;
+  transition: -webkit-box-flex .3s, -webkit-flex .3s;
+  -o-transition: flex .3s;
+  transition: flex .3s;
+  transition: flex .3s, -webkit-box-flex .3s, -webkit-flex .3s, -ms-flex .3s;
+  -webkit-animation-duration: 100ms;
+          animation-duration: 100ms; }
   .status-success > h1 {
     position: absolute;
     top: 50%;
@@ -161,7 +181,8 @@ h1.slogan {
 @media only screen and (min-width: 768px) {
   h1 {
     font-size: 6rem;
-    -webkit-text-stroke: 2px black; }
+    -webkit-text-stroke: 2px black;
+    line-height: .75; }
   .status-error,
   .status-sending {
     font-size: 2rem; }

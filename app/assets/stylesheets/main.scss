@@ -97,15 +97,23 @@ h1 {
   margin-bottom: 30px;
 }
 
+@keyframes strobe {
+  0% { background:white; }
+  50% { background:black; }
+}
+
 .status-success {
   position: fixed;
   top: 0; left: 0;
   z-index: 2;
 
-  background: black;
   width: 100%; height: 100%;
   text-transform: uppercase;
   text-align: center;
+
+  animation:strobe 200ms steps(1,end) infinite;
+  transition: flex .3s;
+  animation-duration:100ms;
 
   > h1 {
     position: absolute;
@@ -226,6 +234,7 @@ h1.slogan {
   h1 {
     font-size: 6rem;
     -webkit-text-stroke: 2px black;
+    line-height: .75;
   }
 
   .status-error,
