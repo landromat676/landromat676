@@ -127,7 +127,7 @@ h1 {
 }
 
 h1.slogan {
-  margin-bottom: $grid*2;
+  margin-bottom: $grid/2*3;
   font-size: 3.8rem;
 }
 
@@ -159,7 +159,7 @@ h1.slogan {
     display: flex;
     align-items: center;
 
-    margin: $grid*2 0;
+    margin: $grid/2*3 0;
 
     input:checked + span {
       background: white;

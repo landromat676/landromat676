@@ -23422,8 +23422,7 @@ var CustomForm = function CustomForm(_ref) {
       },
       className: status && status === "error" ? "error" : "",
       onChange: clearError,
-      type: "tel",
-      pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}",
+      type: "email",
       placeholder: "E-mail",
       onKeyUp: submitOnEnter
     }),
@@ -23433,7 +23432,8 @@ var CustomForm = function CustomForm(_ref) {
       },
       className: status && status === "error" ? "error" : "",
       onChange: clearError,
-      type: "number",
+      type: "tel",
+      pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}",
       placeholder: "Numero de tel\xE9fono/Phone number",
       onKeyUp: submitOnEnter
     }),

@@ -74,8 +74,7 @@ const CustomForm = ({ status, message, onValidated, isSubmitButtonDisabled, chec
         ref={node => (email = node)}
         className={status && status === "error" ? "error" : "" }
         onChange={clearError}
-        type="tel"
-        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        type="email"
         placeholder="E-mail"
         onKeyUp={submitOnEnter}
       />
@@ -83,7 +82,8 @@ const CustomForm = ({ status, message, onValidated, isSubmitButtonDisabled, chec
         ref={node => (phone = node)}
         className={status && status === "error" ? "error" : "" }
         onChange={clearError}
-        type="number"
+        type="tel"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
         placeholder="Numero de teléfono/Phone number"
         onKeyUp={submitOnEnter}
       />
