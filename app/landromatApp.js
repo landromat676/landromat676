@@ -67,7 +67,7 @@ const CustomForm = ({ status, message, onValidated, isSubmitButtonDisabled, chec
         className={status && status === "error" ? "error" : "" }
         onChange={clearError}
         type="name"
-        placeholder="Nombre/Name"
+        placeholder="NOMBRE/NAME"
         onKeyUp={submitOnEnter}
       />
       <input
@@ -75,7 +75,7 @@ const CustomForm = ({ status, message, onValidated, isSubmitButtonDisabled, chec
         className={status && status === "error" ? "error" : "" }
         onChange={clearError}
         type="email"
-        placeholder="E-mail"
+        placeholder="E-MAIL"
         onKeyUp={submitOnEnter}
       />
       <input
@@ -84,7 +84,7 @@ const CustomForm = ({ status, message, onValidated, isSubmitButtonDisabled, chec
         onChange={clearError}
         type="tel"
         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-        placeholder="Numero de teléfono/Phone number"
+        placeholder="NUMERO DE TELEÉFONO/PHONE NUMBER"
         onKeyUp={submitOnEnter}
       />
       <div className="checkbox-wrapper">
